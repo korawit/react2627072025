@@ -1,0 +1,141 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* Container for the entire BMI calculator */
+#root, .Bmi { /* Assuming Bmi is the main component rendered, or it's wrapped in a root div */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Heading styles */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+/* Input field styling */
+input[type="text"], input[type="number"] { /* Assuming inputs are text or number types */
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+/* Label/text for inputs */
+br + * { /* Selects elements immediately following a <br>, like "Weight:" and "Height:" */
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Button styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #3d8c40;
+    transform: translateY(0);
+}
+
+/* BMI value display */
+p {
+    font-size: 1.4em;
+    color: #333;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+p strong {
+    color: #4CAF50;
+}
+
+/* Styling for BmiText component outputs */
+.BmiText h1 {
+    font-size: 1.8em;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.BmiText img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific colors for BMI categories */
+.BmiText h1:nth-of-type(1) { /* For "Underweight" */
+    color: #ffc107; /* Amber/Yellow */
+}
+
+.BmiText h1:nth-of-type(2) { /* For "Overweight" */
+    color: #f44336; /* Red */
+}
+
+.BmiText h1:nth-of-type(3) { /* For "Normal" */
+    color: #4CAF50; /* Green */
+}
+/* Input field styling */
+.bmi-input { /* ใช้ class ที่เพิ่มเข้าไป */
+    width: calc(100% - 20px); /* หรือจะกำหนดความกว้างตายตัวไปเลย เช่น 250px */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.bmi-input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+    outline: none;
+}

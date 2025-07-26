@@ -1,0 +1,17 @@
+#email{
+    text-decoration:underline;
+}
+.box{
+    border: 3px solid blue;
+}
+.yellow-bg{
+    background-color: yellow;
+}
+h1{
+    color:#ee00ff;
+    border: 2px solid red;
+}
+h1:hover{
+    color:blue;
+    background-color: antiquewhite;
+}
