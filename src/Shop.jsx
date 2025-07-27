@@ -30,8 +30,8 @@ export default function Shop() {
     for (let i = 0; i < cart.length; i++) { total = total + cart[i].price; }
     return (<>
         <header>
-            <h1>Book Heaven</h1>
-            <p>Your Gateway to Endless Stories</p>
+            <h1>Book Heaven!!!</h1>
+            <p>ประตูสู่เรื่องราวที่ไม่รู้จบ</p>
             <nav>
                 <a href="#">Home</a>
                 <a href="#">Shop</a>
