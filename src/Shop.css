@@ -1,0 +1,246 @@
+/* --- ธีมสีพาสเทล --- */
+:root {
+    --pastel-bg: #FFF5E1;      /* สีพื้นหลังหลัก (ครีมอ่อน) */
+    --header-bg: #A7C7E7;     /* สีส่วนหัว (ฟ้าพาสเทล) */
+    --card-bg: #FFFFFF;       /* สีการ์ดหนังสือ (ขาว) */
+    --primary-text: #333333;  /* สีตัวอักษรหลัก */
+    --secondary-text: #6c757d;/* สีตัวอักษรรอง (เทา) */
+    --button-bg: #B2D8B2;     /* สีปุ่ม (เขียวพาสเทล) */
+    --button-hover-bg: #a1c4a1; /* สีปุ่มเมื่อเมาส์ชี้ */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- การตั้งค่าพื้นฐาน & ตัวอักษร --- */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--pastel-bg);
+    color: var(--primary-text);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* --- ส่วน Header --- */
+header {
+    background-color: var(--header-bg);
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 5px 0 15px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+}
+
+header nav a:hover {
+    opacity: 0.8;
+}
+
+/* --- Layout หลักของหน้า --- */
+.page-container {
+    display: flex;
+    padding: 30px;
+    gap: 30px; /* เพิ่มช่องว่างระหว่างส่วนรายการหนังสือกับตะกร้า */
+    align-items: flex-start; /* ทำให้ส่วนบนของทั้งสองคอลัมน์ตรงกัน */
+}
+
+.main-content {
+    flex: 1; /* ทำให้ส่วนนี้ขยายเต็มพื้นที่ที่เหลือ */
+}
+
+.sidebar-cart {
+    flex-basis: 350px; /* กำหนดความกว้างของตะกร้า */
+    position: sticky; /* ทำให้ตะกร้าเลื่อนตามเมื่อ scroll */
+    top: 30px;
+}
+
+/* --- กล่องค้นหา --- */
+.searchbox {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.searchbox input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 300px;
+    font-size: 1rem;
+}
+
+/* --- ส่วนแสดงรายการหนังสือ (3 เล่มต่อแถว) --- */
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ⭐️ กำหนดให้มี 3 คอลัมน์ ขนาดเท่ากัน */
+    gap: 25px; /* ช่องว่างระหว่างหนังสือ */
+}
+
+.book-item {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* จัดเรียงเนื้อหาภายในการ์ด */
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.book-thumbnail {
+    max-width: 150px;
+    height: auto;
+    margin: 0 auto 15px;
+    border-radius: 4px;
+}
+
+.book-title {
+    font-weight: bold;
+    font-size: 1rem;
+    min-height: 60px; /* กำหนดความสูงขั้นต่ำให้ชื่อเรื่อง */
+}
+
+.book-author {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+    margin: 5px 0 15px;
+}
+
+.book-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #2a9d8f; /* สีเขียวอมฟ้า */
+    margin-bottom: 15px;
+}
+
+/* --- ส่วนของตะกร้าสินค้า --- */
+.cart-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-text);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--header-bg);
+    padding-bottom: 10px;
+}
+
+.cart-container {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.cart-container ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px; /* จำกัดความสูงและให้ scroll ได้ */
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 5px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+.book-title-cart {
+    width: 75%;
+    padding-right: 10px;
+}
+
+.book-price-cart {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cart-total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+}
+
+/* --- ปุ่มกด --- */
+.add-cart-btn, .clear-cart-btn {
+    background-color: var(--button-bg);
+    color: var(--primary-text);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.add-cart-btn:hover, .clear-cart-btn:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.clear-cart-btn {
+    margin-top: 20px;
+    background-color: #ffb3ba; /* สีชมพูพาสเทล */
+}
+
+.clear-cart-btn:hover {
+    background-color: #ff9a9e;
+}
+
+/* --- การปรับหน้าจอสำหรับมือถือ (Responsive) --- */
+@media (max-width: 1200px) {
+    .books-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 เล่มต่อแถวสำหรับ Tablet */
+    }
+}
+
+@media (max-width: 992px) {
+    .page-container {
+        flex-direction: column; /* เปลี่ยนเป็นเรียงแนวตั้ง */
+    }
+    .sidebar-cart {
+        width: 100%;
+        position: static; /* ยกเลิกการ sticky */
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .books-container {
+        grid-template-columns: 1fr; /* 1 เล่มต่อแถวสำหรับมือถือ */
+    }
+    header {
+        padding: 15px 20px;
+    }
+    .page-container {
+        padding: 20px;
+    }
+}
